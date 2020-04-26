@@ -1,0 +1,12 @@
+server:
+  port: 8761
+  
+# This will prevent to register Eureka with its own instance and dont fetch the local registry !
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    
+  datacenter: Reston
+  environment: production
+    
