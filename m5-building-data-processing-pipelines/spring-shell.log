@@ -1,0 +1,17 @@
+// dataflow 1.2.0.RELEASE log opened at 2020-04-27 02:46:40
+help
+// dataflow 1.2.0.RELEASE log opened at 2020-04-27 03:00:35
+app list
+app import --uri https://dataflow.spring.io/rabbitmq-maven-latest
+app list
+// [failed] stream create --definition "http --port:8086 | file directory C:\csv\dataflow-out --suffix=txt --name=output" --name hello 
+// [failed] stream create --definition "http --port:8086 | file directory C:/csv/dataflow-out --suffix=txt --name=output" --name hello 
+// [failed] stream create --definition "http --port=8086 | file directory C:/csv/dataflow-out --suffix=txt --name=output" --name hello 
+// [failed] stream create --definition "http --port=8086 | file --directory C:/csv/dataflow-out --suffix=txt --name=output" --name hello 
+stream create --definition "http --port=8086 | file --directory=C:/csv/dataflow-out --suffix=txt --name=output" --name hello 
+stream list
+stream deploy hello
+stream create --definition "file --directory=C:/csv/dataflow-in --mode=lines | transform --expression=payload+' | processed=true' | output: file --directory=C:/csv/dataflow-out --suffix=txt --name=outputZ" --name stream1
+stream deploy stream1
+// dataflow 1.2.0.RELEASE log opened at 2020-04-28 23:50:36
+// dataflow 1.2.0.RELEASE log opened at 2020-04-28 23:52:35
