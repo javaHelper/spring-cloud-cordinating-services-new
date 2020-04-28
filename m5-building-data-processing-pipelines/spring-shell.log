@@ -15,3 +15,10 @@ stream create --definition "file --directory=C:/csv/dataflow-in --mode=lines | t
 stream deploy stream1
 // dataflow 1.2.0.RELEASE log opened at 2020-04-28 23:50:36
 // dataflow 1.2.0.RELEASE log opened at 2020-04-28 23:52:35
+app list
+app import --uri https://dataflow.spring.io/task-maven-latest
+app list
+task create demotask --definition "timestamp --format=\MM\yy\"
+task list
+task launch demotask
+task execution list
